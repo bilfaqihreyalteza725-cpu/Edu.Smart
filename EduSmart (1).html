@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduSmart.com - Platform belajar online dengan tutor AI dan mentor ahli.">
+  <title>EduSmart.com | Belajar Lebih Cerdas</title>
+  <style>
+    :root {
+      --primary:#4f46e5;
+      --primary-dark:#3730a3;
+      --accent:#f59e0b;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --border:#e2e8f0;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+    }
+
+    body.dark {
+      --bg:#0b1020;
+      --card:#151b2e;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --border:#263050;
+      --shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      font-family:'Segoe UI',Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      transition:background .3s,color .3s;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    ul {
+      list-style:none;
+    }
+
+    .container {
+      width:min(1180px,92%);
+      margin:0 auto;
+    }
+
+    section {
+      padding:80px 0;
+    }
+
+    .section-head {
+      text-align:center;
+      max-width:640px;
+      margin:0 auto 48px;
+    }
+
+    .section-head h2 {
+      font-size:2.2rem;
+      margin-bottom:12px;
+    }
+
+    .section-head p {
+      color:var(--muted);
+    }
+
+    .eyebrow {
+      display:inline-block;
+      color:var(--primary);
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.8rem;
+      margin-bottom:8px;
+    }
+
+    .btn {
+      display:inline-block;
+      padding:12px 26px;
+      border-radius:999px;
+      border:2px solid var(--primary);
+      background:var(--primary);
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+      font-size:1rem;
+      transition:transform .2s,background .2s;
+    }
+
+    .btn:hover {
+      transform:translateY(-2px);
+      background:var(--primary-dark);
+    }
+
+    .btn.ghost {
+      background:transparent;
+      color:var(--primary);
+    }
+
+    .btn.ghost:hover {
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn.small {
+      padding:8px 18px;
+      font-size:.9rem;
+    }
+
+    .btn.block {
+      display:block;
+      width:100%;
+      text-align:center;
+    }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:var(--card);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(8px);
+    }
+
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:70px;
+    }
+
+    .logo {
+      font-size:1.5rem;
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .logo span {
+      color:var(--accent);
+    }
+
+    .menu {
+      display:flex;
+      gap:28px;
+      align-items:center;
+    }
+
+    .menu a {
+      font-weight:500;
+      color:var(--muted);
+      transition:color .2s;
+    }
+
+    .menu a:hover {
+      color:var(--primary);
+    }
+
+    .nav-actions {
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .icon-btn {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      border:1px solid var(--border);
+      background:var(--card);
+      cursor:pointer;
+      font-size:1.1rem;
+    }
+
+    .burger {
+      display:none;
+    }
+
+    .hero {
+      padding:90px 0;
+      background:linear-gradient(135deg,#eef2ff,#fdf4ff);
+    }
+
+    body.dark .hero {
+      background:linear-gradient(135deg,#111936,#1b1038);
+    }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:48px;
+      align-items:center;
+    }
+
+    .hero h1 {
+      font-size:3.1rem;
+      line-height:1.15;
+      margin-bottom:18px;
+    }
+
+    .hero h1 em {
+      font-style:normal;
+      color:var(--primary);
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.15rem;
+      margin-bottom:28px;
+    }
+
+    .hero-cta {
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .search {
+      display:flex;
+      margin-top:28px;
+      background:var(--card);
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid var(--border);
+    }
+
+    .search input {
+      flex:1;
+      border:0;
+      padding:14px 22px;
+      font-size:1rem;
+      background:transparent;
+      color:var(--text);
+      outline:none;
+    }
+
+    .search button {
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      padding:0 26px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    .hero-card {
+      background:var(--card);
+      border-radius:24px;
+      padding:32px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .hero-emoji {
+      font-size:5rem;
+    }
+
+    .progress {
+      height:10px;
+      background:var(--border);
+      border-radius:99px;
+      overflow:hidden;
+      margin:14px 0;
+    }
+
+    .progress i {
+      display:block;
+      height:100%;
+      width:72%;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+    }
+
+    .stats {
+      padding:40px 0;
+    }
+
+    .stats-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .stat {
+      text-align:center;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .stat strong {
+      display:block;
+      font-size:2rem;
+      color:var(--primary);
+    }
+
+    .stat span {
+      color:var(--muted);
+    }
+
+    .grid-4 {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .grid-3 {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .cat {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      text-align:center;
+      cursor:pointer;
+      transition:all .25s;
+    }
+
+    .cat:hover,.cat.active {
+      border-color:var(--primary);
+      transform:translateY(-4px);
+      box-shadow:var(--shadow);
+    }
+
+    .cat .ico {
+      font-size:2.2rem;
+      display:block;
+    }
+
+    .cat h3 {
+      font-size:1rem;
+      margin-top:8px;
+    }
+
+    .course {
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      transition:transform .25s;
+    }
+
+    .course:hover {
+      transform:translateY(-6px);
+    }
+
+    .course.hide {
+      display:none;
+    }
+
+    .thumb {
+      height:130px;
+      display:grid;
+      place-items:center;
+      font-size:3.4rem;
+      background:linear-gradient(135deg,#c7d2fe,#fbcfe8);
+    }
+
+    .course .body {
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+
+    .tag {
+      align-self:flex-start;
+      background:#eef2ff;
+      color:var(--primary);
+      font-size:.75rem;
+      font-weight:700;
+      padding:3px 10px;
+      border-radius:99px;
+    }
+
+    .course h3 {
+      font-size:1.05rem;
+    }
+
+    .course p {
+      color:var(--muted);
+      font-size:.9rem;
+      flex:1;
+    }
+
+    .meta {
+      display:flex;
+      gap:12px;
+      font-size:.8rem;
+      color:var(--muted);
+      flex-wrap:wrap;
+    }
+
+    .foot {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:6px;
+    }
+
+    .price {
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .alt {
+      background:var(--card);
+    }
+
+    .feature {
+      padding:28px;
+      border-radius:var(--radius);
+      background:var(--bg);
+      border:1px solid var(--border);
+    }
+
+    .feature .ico {
+      font-size:2rem;
+    }
+
+    .feature h3 {
+      margin:10px 0 6px;
+    }
+
+    .feature p {
+      color:var(--muted);
+    }
+
+    .step {
+      text-align:center;
+      padding:10px;
+    }
+
+    .step b {
+      display:grid;
+      place-items:center;
+      width:56px;
+      height:56px;
+      margin:0 auto 12px;
+      border-radius:50%;
+      background:var(--primary);
+      color:#fff;
+      font-size:1.4rem;
+    }
+
+    .step p {
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .teacher {
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:26px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .avatar {
+      width:84px;
+      height:84px;
+      border-radius:50%;
+      margin:0 auto 12px;
+      display:grid;
+      place-items:center;
+      font-size:1.8rem;
+      font-weight:700;
+      color:#fff;
+      background:linear-gradient(135deg,var(--primary),#ec4899);
+    }
+
+    .teacher small {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .teacher p {
+      color:var(--muted);
+      font-size:.9rem;
+      margin-top:6px;
+    }
+
+    .review {
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .review .stars {
+      color:var(--accent);
+      margin-bottom:8px;
+    }
+
+    .review p {
+      font-style:italic;
+      margin-bottom:12px;
+    }
+
+    .review cite {
+      color:var(--muted);
+      font-size:.85rem;
+    }
+
+    .table-wrap {
+      overflow-x:auto;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      min-width:520px;
+    }
+
+    th,td {
+      padding:16px 20px;
+      text-align:left;
+      border-bottom:1px solid var(--border);
+    }
+
+    th {
+      background:var(--primary);
+      color:#fff;
+    }
+
+    tr:last-child td {
+      border-bottom:0;
+    }
+
+    .toggle {
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-bottom:32px;
+    }
+
+    .toggle button {
+      padding:8px 22px;
+      border-radius:99px;
+      border:1px solid var(--border);
+      background:var(--card);
+      color:var(--text);
+      cursor:pointer;
+    }
+
+    .toggle button.on {
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
+    }
+
+    .plan {
+      background:var(--card);
+      border:2px solid var(--border);
+      border-radius:var(--radius);
+      padding:32px;
+      position:relative;
+    }
+
+    .plan.pop {
+      border-color:var(--primary);
+      box-shadow:var(--shadow);
+      transform:scale(1.03);
+    }
+
+    .badge {
+      position:absolute;
+      top:-14px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--accent);
+      color:#000;
+      padding:4px 16px;
+      border-radius:99px;
+      font-size:.8rem;
+      font-weight:700;
+    }
+
+    .plan .amount {
+      font-size:2.2rem;
+      font-weight:800;
+      margin:10px 0;
+    }
+
+    .plan li {
+      padding:6px 0;
+      color:var(--muted);
+    }
+
+    .plan li::before {
+      content:'✔ ';
+      color:#16a34a;
+    }
+
+    .plan ul {
+      margin:16px 0 24px;
+    }
+
+    .quiz-box {
+      max-width:640px;
+      margin:0 auto;
+      background:var(--card);
+      padding:32px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .opt {
+      display:block;
+      width:100%;
+      text-align:left;
+      padding:12px 16px;
+      margin-top:10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--bg);
+      color:var(--text);
+      cursor:pointer;
+      font-size:1rem;
+    }
+
+    .opt.ok {
+      background:#dcfce7;
+      border-color:#16a34a;
+      color:#14532d;
+    }
+
+    .opt.bad {
+      background:#fee2e2;
+      border-color:#dc2626;
+      color:#7f1d1d;
+    }
+
+    #quizMsg {
+      margin-top:14px;
+      font-weight:600;
+    }
+
+    details {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:16px 20px;
+      margin-bottom:12px;
+    }
+
+    summary {
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    details p {
+      margin-top:10px;
+      color:var(--muted);
+    }
+
+    .faq {
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .post {
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .post .body {
+      padding:22px;
+    }
+
+    .post h3 {
+      margin:8px 0;
+    }
+
+    .post p {
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:10px;
+    }
+
+    .post a.more {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .newsletter {
+      background:linear-gradient(135deg,var(--primary),#7c3aed);
+      color:#fff;
+      text-align:center;
+    }
+
+    .newsletter form {
+      display:flex;
+      gap:10px;
+      max-width:520px;
+      margin:24px auto 0;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .newsletter input {
+      flex:1;
+      min-width:220px;
+      padding:14px 20px;
+      border-radius:99px;
+      border:0;
+      font-size:1rem;
+    }
+
+    .newsletter .btn {
+      background:var(--accent);
+      border-color:var(--accent);
+      color:#000;
+    }
+
+    #formMsg {
+      margin-top:12px;
+      min-height:24px;
+    }
+
+    footer {
+      background:#0f172a;
+      color:#cbd5e1;
+      padding:60px 0 24px;
+    }
+
+    .foot-grid {
+      display:grid;
+      grid-template-columns:1.4fr repeat(4,1fr);
+      gap:30px;
+    }
+
+    footer h4 {
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    footer li {
+      padding:4px 0;
+    }
+
+    footer a:hover {
+      color:var(--accent);
+    }
+
+    .copy {
+      border-top:1px solid #1e293b;
+      margin-top:40px;
+      padding-top:20px;
+      text-align:center;
+      font-size:.85rem;
+    }
+
+    #toTop {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      font-size:1.3rem;
+      cursor:pointer;
+      display:none;
+      box-shadow:var(--shadow);
+    }
+
+    @media (max-width:980px) {
+      .hero-grid,.grid-3 {
+        grid-template-columns:1fr 1fr;
+      }
+      .grid-4,.stats-grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+      .foot-grid {
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:720px) {
+      .hero-grid,.grid-3,.grid-4,.stats-grid,.foot-grid {
+        grid-template-columns:1fr;
+      }
+      .hero h1 {
+        font-size:2.2rem;
+      }
+      .burger {
+        display:inline-block;
+      }
+      .menu {
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        background:var(--card);
+        padding:20px;
+        border-bottom:1px solid var(--border);
+      }
+      .menu.open {
+        display:flex;
+      }
+      .plan.pop {
+        transform:none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#beranda" class="logo">
+        Edu
+        <span>
+          Smart
+        </span>
+      </a>
+      <nav class="menu" id="menu">
+        <a href="#beranda">
+          Beranda
+        </a>
+        <a href="#kategori">
+          Kategori
+        </a>
+        <a href="#kursus">
+          Kursus
+        </a>
+        <a href="#fitur">
+          Fitur
+        </a>
+        <a href="#mentor">
+          Mentor
+        </a>
+        <a href="#harga">
+          Harga
+        </a>
+        <a href="#faq">
+          FAQ
+        </a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Ganti tema">
+          🌙
+        </button>
+        <a href="#" class="btn ghost small">
+          Masuk
+        </a>
+        <button class="icon-btn burger" id="burger" aria-label="Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="beranda">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">
+          🚀 Platform Belajar #1 Indonesia
+        </span>
+        <h1>
+          Belajar Lebih 
+          <em>
+            Cerdas
+          </em>
+          , Raih Masa Depan Lebih Cerah
+        </h1>
+        <p>
+          Ribuan materi, tutor AI, dan mentor berpengalaman siap menemani perjalanan belajarmu kapan saja dan di mana saja.
+        </p>
+        <div class="hero-cta">
+          <a href="#harga" class="btn">
+            Mulai Gratis
+          </a>
+          <a href="#kursus" class="btn ghost">
+            Lihat Kursus
+          </a>
+        </div>
+        <div class="search">
+          <input type="search" id="q" placeholder="Cari kursus, misalnya: Python">
+          <button id="searchBtn">
+            Cari
+          </button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-emoji">
+          🎓
+        </div>
+        <h3>
+          Progres Belajarmu
+        </h3>
+        <div class="progress">
+          <i>
+          </i>
+        </div>
+        <p>
+          72% menuju sertifikat Python Dasar
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat">
+        <strong>
+          250rb+
+        </strong>
+        <span>
+          Pelajar Aktif
+        </span>
+      </div>
+      <div class="stat">
+        <strong>
+          1.200+
+        </strong>
+        <span>
+          Materi & Kursus
+        </span>
+      </div>
+      <div class="stat">
+        <strong>
+          85+
+        </strong>
+        <span>
+          Mentor Ahli
+        </span>
+      </div>
+      <div class="stat">
+        <strong>
+          4,8/5
+        </strong>
+        <span>
+          Rating Pengguna
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section id="kategori">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Kategori
+        </span>
+        <h2>
+          Jelajahi Bidang Belajar
+        </h2>
+        <p>
+          Pilih topik yang kamu minati lalu temukan kursus terbaik.
+        </p>
+      </div>
+      <div class="grid-4">
+        <div class="cat" data-cat="Matematika">
+          <span class="ico">
+            🧮
+          </span>
+          <h3>
+            Matematika
+          </h3>
+        </div>
+        <div class="cat" data-cat="Sains">
+          <span class="ico">
+            🔬
+          </span>
+          <h3>
+            Sains
+          </h3>
+        </div>
+        <div class="cat" data-cat="Bahasa Inggris">
+          <span class="ico">
+            🗣️
+          </span>
+          <h3>
+            Bahasa Inggris
+          </h3>
+        </div>
+        <div class="cat" data-cat="Pemrograman">
+          <span class="ico">
+            💻
+          </span>
+          <h3>
+            Pemrograman
+          </h3>
+        </div>
+        <div class="cat" data-cat="Desain">
+          <span class="ico">
+            🎨
+          </span>
+          <h3>
+            Desain
+          </h3>
+        </div>
+        <div class="cat" data-cat="Bisnis">
+          <span class="ico">
+            📈
+          </span>
+          <h3>
+            Bisnis
+          </h3>
+        </div>
+        <div class="cat" data-cat="Musik">
+          <span class="ico">
+            🎵
+          </span>
+          <h3>
+            Musik
+          </h3>
+        </div>
+        <div class="cat" data-cat="Persiapan Ujian">
+          <span class="ico">
+            📝
+          </span>
+          <h3>
+            Persiapan Ujian
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kursus" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Kursus Populer
+        </span>
+        <h2>
+          Pilih Kursus Favoritmu
+        </h2>
+        <p>
+          Dirancang oleh pakar dan diperbarui secara berkala.
+        </p>
+      </div>
+      <div class="grid-4">
+        <article class="course" data-cat="Matematika">
+          <div class="thumb">
+            🧮
+          </div>
+          <div class="body">
+            <span class="tag">
+              Matematika
+            </span>
+            <h3>
+              Aljabar Dasar untuk Pemula
+            </h3>
+            <p>
+              Pahami variabel, persamaan, dan fungsi dengan contoh sehari-hari.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 8 jam
+              </li>
+              <li>
+                ⭐ 4,8
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 149.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Matematika">
+          <div class="thumb">
+            📐
+          </div>
+          <div class="body">
+            <span class="tag">
+              Matematika
+            </span>
+            <h3>
+              Kalkulus Visual
+            </h3>
+            <p>
+              Limit, turunan, dan integral dijelaskan lewat animasi interaktif.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Menengah
+              </li>
+              <li>
+                ⏳ 14 jam
+              </li>
+              <li>
+                ⭐ 4,9
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 249.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Sains">
+          <div class="thumb">
+            ⚛️
+          </div>
+          <div class="body">
+            <span class="tag">
+              Sains
+            </span>
+            <h3>
+              Fisika Dasar SMA
+            </h3>
+            <p>
+              Gerak, gaya, energi, dan listrik dengan eksperimen virtual.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 12 jam
+              </li>
+              <li>
+                ⭐ 4,7
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 199.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Sains">
+          <div class="thumb">
+            🧪
+          </div>
+          <div class="body">
+            <span class="tag">
+              Sains
+            </span>
+            <h3>
+              Kimia Organik Ringkas
+            </h3>
+            <p>
+              Gugus fungsi dan reaksi penting tanpa hafalan berlebihan.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Menengah
+              </li>
+              <li>
+                ⏳ 10 jam
+              </li>
+              <li>
+                ⭐ 4,6
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 219.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Bahasa Inggris">
+          <div class="thumb">
+            💬
+          </div>
+          <div class="body">
+            <span class="tag">
+              Bahasa Inggris
+            </span>
+            <h3>
+              English for Daily Life
+            </h3>
+            <p>
+              Percakapan praktis untuk belanja, kerja, dan perjalanan.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 9 jam
+              </li>
+              <li>
+                ⭐ 4,8
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 129.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Bahasa Inggris">
+          <div class="thumb">
+            🎧
+          </div>
+          <div class="body">
+            <span class="tag">
+              Bahasa Inggris
+            </span>
+            <h3>
+              Persiapan IELTS Academic
+            </h3>
+            <p>
+              Strategi Listening, Reading, Writing, dan Speaking.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Lanjutan
+              </li>
+              <li>
+                ⏳ 20 jam
+              </li>
+              <li>
+                ⭐ 4,9
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 399.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Pemrograman">
+          <div class="thumb">
+            🐍
+          </div>
+          <div class="body">
+            <span class="tag">
+              Pemrograman
+            </span>
+            <h3>
+              Python dari Nol
+            </h3>
+            <p>
+              Belajar logika pemrograman dan membuat 5 proyek kecil.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 16 jam
+              </li>
+              <li>
+                ⭐ 4,9
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 179.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Pemrograman">
+          <div class="thumb">
+            🌐
+          </div>
+          <div class="body">
+            <span class="tag">
+              Pemrograman
+            </span>
+            <h3>
+              Web Development Modern
+            </h3>
+            <p>
+              HTML, CSS, JavaScript, hingga deploy situs pertamamu.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Menengah
+              </li>
+              <li>
+                ⏳ 24 jam
+              </li>
+              <li>
+                ⭐ 4,8
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 349.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Desain">
+          <div class="thumb">
+            🎨
+          </div>
+          <div class="body">
+            <span class="tag">
+              Desain
+            </span>
+            <h3>
+              UI/UX Design Fundamental
+            </h3>
+            <p>
+              Riset pengguna, wireframe, dan prototipe di Figma.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 11 jam
+              </li>
+              <li>
+                ⭐ 4,7
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 189.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Desain">
+          <div class="thumb">
+            🖌️
+          </div>
+          <div class="body">
+            <span class="tag">
+              Desain
+            </span>
+            <h3>
+              Desain Grafis dengan Canva
+            </h3>
+            <p>
+              Buat poster, logo, dan konten media sosial profesional.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 6 jam
+              </li>
+              <li>
+                ⭐ 4,6
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 99.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Bisnis">
+          <div class="thumb">
+            🚀
+          </div>
+          <div class="body">
+            <span class="tag">
+              Bisnis
+            </span>
+            <h3>
+              Dasar Kewirausahaan
+            </h3>
+            <p>
+              Dari ide, validasi pasar, hingga rencana bisnis sederhana.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 7 jam
+              </li>
+              <li>
+                ⭐ 4,7
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 139.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Bisnis">
+          <div class="thumb">
+            📊
+          </div>
+          <div class="body">
+            <span class="tag">
+              Bisnis
+            </span>
+            <h3>
+              Akuntansi untuk UMKM
+            </h3>
+            <p>
+              Catat arus kas dan baca laporan keuangan dengan percaya diri.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Menengah
+              </li>
+              <li>
+                ⏳ 9 jam
+              </li>
+              <li>
+                ⭐ 4,8
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 169.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Musik">
+          <div class="thumb">
+            🎸
+          </div>
+          <div class="body">
+            <span class="tag">
+              Musik
+            </span>
+            <h3>
+              Gitar Akustik Pemula
+            </h3>
+            <p>
+              Kunci dasar, strumming, dan lagu pertamamu dalam 2 minggu.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Pemula
+              </li>
+              <li>
+                ⏳ 8 jam
+              </li>
+              <li>
+                ⭐ 4,8
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 119.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Musik">
+          <div class="thumb">
+            🎼
+          </div>
+          <div class="body">
+            <span class="tag">
+              Musik
+            </span>
+            <h3>
+              Teori Musik Praktis
+            </h3>
+            <p>
+              Not, tangga nada, dan harmoni untuk semua instrumen.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Menengah
+              </li>
+              <li>
+                ⏳ 6 jam
+              </li>
+              <li>
+                ⭐ 4,6
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 109.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Persiapan Ujian">
+          <div class="thumb">
+            🎯
+          </div>
+          <div class="body">
+            <span class="tag">
+              Persiapan Ujian
+            </span>
+            <h3>
+              Intensif UTBK-SNBT
+            </h3>
+            <p>
+              Latihan soal TPS, literasi, dan penalaran dengan pembahasan.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Lanjutan
+              </li>
+              <li>
+                ⏳ 30 jam
+              </li>
+              <li>
+                ⭐ 4,9
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 449.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="course" data-cat="Persiapan Ujian">
+          <div class="thumb">
+            ⏱️
+          </div>
+          <div class="body">
+            <span class="tag">
+              Persiapan Ujian
+            </span>
+            <h3>
+              Try Out Nasional Bulanan
+            </h3>
+            <p>
+              Simulasi ujian dengan peringkat nasional dan analisis nilai.
+            </p>
+            <ul class="meta">
+              <li>
+                📶 Semua
+              </li>
+              <li>
+                ⏳ 3 jam
+              </li>
+              <li>
+                ⭐ 4,7
+              </li>
+            </ul>
+            <div class="foot">
+              <span class="price">
+                Rp 59.000
+              </span>
+              <button class="btn small enroll">
+                Daftar
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p id="empty" style="display:none;text-align:center;margin-top:24px">
+        Tidak ada kursus yang cocok. Coba kata kunci lain.
+      </p>
+    </div>
+  </section>
+
+  <section id="fitur">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Fitur
+        </span>
+        <h2>
+          Kenapa Memilih EduSmart?
+        </h2>
+        <p>
+          Teknologi modern untuk pengalaman belajar yang menyenangkan.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="feature">
+          <span class="ico">
+            🤖
+          </span>
+          <h3>
+            Tutor AI 24 Jam
+          </h3>
+          <p>
+            Tanya apa saja kapan saja dan dapatkan penjelasan bertahap yang sesuai levelmu.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="ico">
+            🧭
+          </span>
+          <h3>
+            Jalur Belajar Personal
+          </h3>
+          <p>
+            Kurikulum menyesuaikan kecepatan dan tujuanmu berdasarkan hasil diagnostik.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="ico">
+            🎮
+          </span>
+          <h3>
+            Gamifikasi
+          </h3>
+          <p>
+            Kumpulkan XP, lencana, dan streak harian agar belajar terasa seperti bermain.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="ico">
+            📱
+          </span>
+          <h3>
+            Belajar Offline
+          </h3>
+          <p>
+            Unduh materi dan tonton video tanpa internet, cocok untuk daerah sinyal lemah.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="ico">
+            👥
+          </span>
+          <h3>
+            Komunitas Aktif
+          </h3>
+          <p>
+            Diskusi, grup belajar, dan sesi tanya jawab langsung bersama mentor.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="ico">
+            🏅
+          </span>
+          <h3>
+            Sertifikat Resmi
+          </h3>
+          <p>
+            Dapatkan sertifikat digital yang bisa dibagikan ke LinkedIn dan CV.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Cara Kerja
+        </span>
+        <h2>
+          Mulai dalam 4 Langkah Mudah
+        </h2>
+        <p>
+          Tanpa ribet, langsung belajar.
+        </p>
+      </div>
+      <div class="grid-4">
+        <div class="step">
+          <b>
+            1
+          </b>
+          <h3>
+            Daftar Gratis
+          </h3>
+          <p>
+            Buat akun dalam 1 menit tanpa kartu kredit.
+          </p>
+        </div>
+        <div class="step">
+          <b>
+            2
+          </b>
+          <h3>
+            Tes Diagnostik
+          </h3>
+          <p>
+            Ketahui level dan kebutuhan belajarmu.
+          </p>
+        </div>
+        <div class="step">
+          <b>
+            3
+          </b>
+          <h3>
+            Ikuti Jalur Belajar
+          </h3>
+          <p>
+            Selesaikan modul, kuis, dan proyek.
+          </p>
+        </div>
+        <div class="step">
+          <b>
+            4
+          </b>
+          <h3>
+            Raih Sertifikat
+          </h3>
+          <p>
+            Bagikan pencapaianmu ke dunia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mentor">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Mentor
+        </span>
+        <h2>
+          Belajar dari Ahlinya
+        </h2>
+        <p>
+          Dipandu praktisi dan akademisi berpengalaman.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="teacher">
+          <div class="avatar">
+            DR
+          </div>
+          <h3>
+            Dr. Rina Kusuma
+          </h3>
+          <small>
+            Matematika
+          </small>
+          <p>
+            15 tahun mengajar, alumnus ITB.
+          </p>
+        </div>
+        <div class="teacher">
+          <div class="avatar">
+            BS
+          </div>
+          <h3>
+            Budi Santoso, M.Sc.
+          </h3>
+          <small>
+            Fisika
+          </small>
+          <p>
+            Peneliti dan penulis buku olimpiade sains.
+          </p>
+        </div>
+        <div class="teacher">
+          <div class="avatar">
+            SW
+          </div>
+          <h3>
+            Sarah Wijaya
+          </h3>
+          <small>
+            Bahasa Inggris
+          </small>
+          <p>
+            Bersertifikat CELTA dengan skor IELTS 8,5.
+          </p>
+        </div>
+        <div class="teacher">
+          <div class="avatar">
+            AP
+          </div>
+          <h3>
+            Andi Pratama
+          </h3>
+          <small>
+            Pemrograman
+          </small>
+          <p>
+            Software engineer dengan pengalaman 10 tahun.
+          </p>
+        </div>
+        <div class="teacher">
+          <div class="avatar">
+            ML
+          </div>
+          <h3>
+            Maya Lestari
+          </h3>
+          <small>
+            Desain
+          </small>
+          <p>
+            Senior product designer di startup unicorn.
+          </p>
+        </div>
+        <div class="teacher">
+          <div class="avatar">
+            RR
+          </div>
+          <h3>
+            Rizky Ramadhan
+          </h3>
+          <small>
+            Bisnis
+          </small>
+          <p>
+            Founder tiga usaha rintisan dan mentor UMKM.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Jadwal
+        </span>
+        <h2>
+          Kelas Live Mingguan
+        </h2>
+        <p>
+          Gabung sesi interaktif bersama mentor secara langsung.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Hari
+              </th>
+              <th>
+                Jam (WIB)
+              </th>
+              <th>
+                Kelas
+              </th>
+              <th>
+                Mentor
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Senin
+              </td>
+              <td>
+                19.00
+              </td>
+              <td>
+                Kelas Live Matematika
+              </td>
+              <td>
+                Dr. Rina
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Selasa
+              </td>
+              <td>
+                19.30
+              </td>
+              <td>
+                Speaking Club Inggris
+              </td>
+              <td>
+                Sarah
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Rabu
+              </td>
+              <td>
+                20.00
+              </td>
+              <td>
+                Coding Bareng Python
+              </td>
+              <td>
+                Andi
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Kamis
+              </td>
+              <td>
+                19.00
+              </td>
+              <td>
+                Klinik Fisika
+              </td>
+              <td>
+                Budi
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Jumat
+              </td>
+              <td>
+                19.30
+              </td>
+              <td>
+                Workshop UI/UX
+              </td>
+              <td>
+                Maya
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Sabtu
+              </td>
+              <td>
+                10.00
+              </td>
+              <td>
+                Try Out UTBK Live
+              </td>
+              <td>
+                Tim Mentor
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Coba Sekarang
+        </span>
+        <h2>
+          Kuis Cepat
+        </h2>
+        <p>
+          Uji kemampuanmu dengan satu soal singkat.
+        </p>
+      </div>
+      <div class="quiz-box" id="quiz" data-answer="1">
+        <h3>
+          Berapakah hasil dari 3x + 5 = 20, nilai x?
+        </h3>
+        <button class="opt">
+          x = 3
+        </button>
+        <button class="opt">
+          x = 5
+        </button>
+        <button class="opt">
+          x = 8
+        </button>
+        <button class="opt">
+          x = 15
+        </button>
+        <p id="quizMsg">
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Testimoni
+        </span>
+        <h2>
+          Kata Mereka tentang EduSmart
+        </h2>
+        <p>
+          Cerita nyata dari pelajar di seluruh Indonesia.
+        </p>
+      </div>
+      <div class="grid-3">
+        <blockquote class="review">
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            “Latihan UTBK-nya sangat mirip aslinya. Nilai try out saya naik 120 poin dalam sebulan!”
+          </p>
+          <cite>
+            — Nadia, SMA Kelas 12
+          </cite>
+        </blockquote>
+        <blockquote class="review">
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            “Kelas Python-nya runtut dan mudah diikuti. Sekarang saya sudah magang sebagai developer.”
+          </p>
+          <cite>
+            — Fajar, Mahasiswa
+          </cite>
+        </blockquote>
+        <blockquote class="review">
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            “Belajar akuntansi sederhana membuat usaha saya lebih tertata dan untung terlihat jelas.”
+          </p>
+          <cite>
+            — Ibu Lestari, Pemilik Warung
+          </cite>
+        </blockquote>
+        <blockquote class="review">
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            “Saya belajar IELTS sambil kerja karena bisa diakses kapan saja lewat ponsel.”
+          </p>
+          <cite>
+            — Kevin, Karyawan
+          </cite>
+        </blockquote>
+        <blockquote class="review">
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            “Tutor AI membantu saya menyiapkan materi dan soal latihan untuk murid-murid.”
+          </p>
+          <cite>
+            — Putri, Guru SD
+          </cite>
+        </blockquote>
+        <blockquote class="review">
+          <div class="stars">
+            ★★★★★
+          </div>
+          <p>
+            “Kursus UI/UX membuka jalan ke klien pertama saya dalam dua bulan.”
+          </p>
+          <cite>
+            — Dimas, Freelancer
+          </cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Harga
+        </span>
+        <h2>
+          Paket yang Sesuai Kebutuhanmu
+        </h2>
+        <p>
+          Mulai gratis, upgrade kapan saja.
+        </p>
+      </div>
+      <div class="toggle">
+        <button class="on" data-mode="month">
+          Bulanan
+        </button>
+        <button data-mode="year">
+          Tahunan (hemat 2 bulan)
+        </button>
+      </div>
+      <div class="grid-3">
+        <div class="plan">
+          <h3>
+            Gratis
+          </h3>
+          <div class="amount" data-month="0" data-year="0">
+            Gratis
+          </div>
+          <ul>
+            <li>
+              Akses 20 materi dasar
+            </li>
+            <li>
+              Kuis harian
+            </li>
+            <li>
+              Forum komunitas
+            </li>
+          </ul>
+          <a href="#" class="btn block ghost">
+            Pilih Paket
+          </a>
+        </div>
+        <div class="plan pop">
+          <span class="badge">
+            Terpopuler
+          </span>
+          <h3>
+            Pelajar
+          </h3>
+          <div class="amount" data-month="79000" data-year="790000">
+            Rp 79.000 /bulan
+          </div>
+          <ul>
+            <li>
+              Semua kursus & video
+            </li>
+            <li>
+              Tutor AI tanpa batas
+            </li>
+            <li>
+              Sertifikat digital
+            </li>
+            <li>
+              Belajar offline
+            </li>
+            <li>
+              Try out bulanan
+            </li>
+          </ul>
+          <a href="#" class="btn block">
+            Pilih Paket
+          </a>
+        </div>
+        <div class="plan">
+          <h3>
+            Keluarga
+          </h3>
+          <div class="amount" data-month="199000" data-year="1990000">
+            Rp 199.000 /bulan
+          </div>
+          <ul>
+            <li>
+              Hingga 5 akun
+            </li>
+            <li>
+              Laporan progres orang tua
+            </li>
+            <li>
+              Sesi mentor mingguan
+            </li>
+            <li>
+              Semua fitur Pelajar
+            </li>
+          </ul>
+          <a href="#" class="btn block ghost">
+            Pilih Paket
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          FAQ
+        </span>
+        <h2>
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <p>
+          Belum menemukan jawaban? Hubungi tim kami.
+        </p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>
+            Apakah EduSmart cocok untuk pemula?
+          </summary>
+          <p>
+            Ya. Setiap kursus punya level yang jelas dan tes diagnostik singkat membantu menentukan titik awal belajarmu.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Bagaimana cara pembayarannya?
+          </summary>
+          <p>
+            Kami menerima transfer bank, e-wallet, kartu kredit, dan pembayaran gerai minimarket.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Bisakah saya belajar lewat ponsel?
+          </summary>
+          <p>
+            Tentu. Situs responsif dan aplikasi mendukung unduhan materi untuk belajar offline.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Apakah ada garansi uang kembali?
+          </summary>
+          <p>
+            Ada garansi 14 hari tanpa syarat jika kamu merasa kursus tidak sesuai.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Berapa lama akses kursus berlaku?
+          </summary>
+          <p>
+            Selama langgananmu aktif. Kursus yang dibeli satuan dapat diakses seumur hidup.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Apakah sertifikatnya diakui?
+          </summary>
+          <p>
+            Sertifikat bersifat kompetensi digital dan dilengkapi kode verifikasi untuk perekrut.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Bagaimana jika saya butuh bantuan mentor?
+          </summary>
+          <p>
+            Ajukan pertanyaan di kolom diskusi atau ikuti sesi live mingguan bersama mentor.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Apakah sekolah bisa berlangganan?
+          </summary>
+          <p>
+            Ya, kami punya paket institusi dengan dasbor guru dan laporan kelas.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">
+          Blog
+        </span>
+        <h2>
+          Artikel & Tips Belajar
+        </h2>
+        <p>
+          Inspirasi terbaru untuk perjalanan belajarmu.
+        </p>
+      </div>
+      <div class="grid-3">
+        <article class="post">
+          <div class="body">
+            <span class="tag">
+              Studi
+            </span>
+            <h3>
+              7 Teknik Belajar yang Terbukti Efektif
+            </h3>
+            <p>
+              Dari active recall hingga spaced repetition, ini cara belajar lebih cepat.
+            </p>
+            <a href="#" class="more">
+              Baca selengkapnya →
+            </a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="body">
+            <span class="tag">
+              Karier
+            </span>
+            <h3>
+              Skill Paling Dicari Tahun Depan
+            </h3>
+            <p>
+              Analisis data, komunikasi, dan literasi AI masuk daftar teratas.
+            </p>
+            <a href="#" class="more">
+              Baca selengkapnya →
+            </a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="body">
+            <span class="tag">
+              Tips
+            </span>
+            <h3>
+              Cara Menyusun Jadwal Belajar Realistis
+            </h3>
+            <p>
+              Mulai dari 25 menit sehari dan bangun kebiasaan secara bertahap.
+            </p>
+            <a href="#" class="more">
+              Baca selengkapnya →
+            </a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="body">
+            <span class="tag">
+              Ujian
+            </span>
+            <h3>
+              Strategi Mengerjakan UTBK dalam Waktu Terbatas
+            </h3>
+            <p>
+              Atur prioritas soal dan kelola waktu per subtes.
+            </p>
+            <a href="#" class="more">
+              Baca selengkapnya →
+            </a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="body">
+            <span class="tag">
+              Teknologi
+            </span>
+            <h3>
+              Belajar Coding Tanpa Latar Belakang IT
+            </h3>
+            <p>
+              Roadmap enam bulan untuk pemula dari nol.
+            </p>
+            <a href="#" class="more">
+              Baca selengkapnya →
+            </a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="body">
+            <span class="tag">
+              Motivasi
+            </span>
+            <h3>
+              Mengatasi Rasa Malas Saat Belajar Mandiri
+            </h3>
+            <p>
+              Trik kecil agar tetap konsisten dan tidak mudah menyerah.
+            </p>
+            <a href="#" class="more">
+              Baca selengkapnya →
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h2>
+        Dapatkan Tips Belajar Mingguan
+      </h2>
+      <p>
+        Gabung dengan 100.000+ pelajar dan terima materi gratis di email kamu.
+      </p>
+      <form id="newsForm" novalidate>
+        <input type="email" id="email" placeholder="Alamat email kamu" required>
+        <button type="submit" class="btn">
+          Berlangganan
+        </button>
+      </form>
+      <p id="formMsg">
+      </p>
+    </div>
+  </section>
+
+  <footer class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo">
+          Edu
+          <span>
+            Smart
+          </span>
+        </div>
+        <p>
+          Platform belajar online untuk semua. Belajar cerdas, tumbuh bersama.
+        </p>
+        <p>
+          📍 Jakarta, Indonesia
+        </p>
+        <p>
+          ✉️ halo@edusmart.com
+        </p>
+      </div>
+      <div>
+        <h4>
+          Produk
+        </h4>
+        <ul>
+          <li>
+            <a href="#">
+              Kursus
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Try Out
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Tutor AI
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Paket Sekolah
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Aplikasi Mobile
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>
+          Perusahaan
+        </h4>
+        <ul>
+          <li>
+            <a href="#">
+              Tentang Kami
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Karier
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Press Kit
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Mitra
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>
+          Bantuan
+        </h4>
+        <ul>
+          <li>
+            <a href="#">
+              Pusat Bantuan
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Hubungi Kami
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Kebijakan Privasi
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Syarat & Ketentuan
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>
+          Sumber Daya
+        </h4>
+        <ul>
+          <li>
+            <a href="#">
+              Panduan Belajar
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Webinar
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Komunitas
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Beasiswa
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">
+      © 2026 EduSmart.com. Seluruh hak cipta dilindungi.
+    </p>
+  </footer>
+
+  <button id="toTop" aria-label="Kembali ke atas">
+    ↑
+  </button>
+
+  <script>
+    const $ = (s, c = document) => c.querySelector(s);
+    const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+    // Menu mobile
+    $('#burger').addEventListener('click', () => {
+      $('#menu').classList.toggle('open');
+    });
+    $$('#menu a').forEach(a => a.addEventListener('click', () => {
+      $('#menu').classList.remove('open');
+    }));
+
+    // Mode gelap
+    $('#themeBtn').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      $('#themeBtn').textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    // Filter kursus berdasarkan kategori dan pencarian
+    let activeCat = 'Semua';
+    function filterCourses() {
+      const q = $('#q').value.trim().toLowerCase();
+      let shown = 0;
+      $$('.course').forEach(c => {
+        const okCat = activeCat === 'Semua' || c.dataset.cat === activeCat;
+        const okText = c.textContent.toLowerCase().includes(q);
+        const show = okCat && okText;
+        c.classList.toggle('hide', !show);
+        if (show) shown++;
+      });
+      $('#empty').style.display = shown ? 'none' : 'block';
+    }
+    $$('.cat').forEach(cat => cat.addEventListener('click', () => {
+      const same = cat.classList.contains('active');
+      $$('.cat').forEach(x => x.classList.remove('active'));
+      activeCat = same ? 'Semua' : cat.dataset.cat;
+      if (!same) cat.classList.add('active');
+      filterCourses();
+      $('#kursus').scrollIntoView({ behavior: 'smooth' });
+    }));
+    $('#q').addEventListener('input', filterCourses);
+    $('#searchBtn').addEventListener('click', () => {
+      filterCourses();
+      $('#kursus').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Tombol daftar kursus
+    $$('.enroll').forEach(b => b.addEventListener('click', () => {
+      const title = b.closest('.course').querySelector('h3').textContent;
+      alert('Terima kasih! Kamu mendaftar ke kursus: ' + title);
+    }));
+
+    // Toggle harga bulanan / tahunan
+    $$('.toggle button').forEach(btn => btn.addEventListener('click', () => {
+      $$('.toggle button').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const mode = btn.dataset.mode;
+      $$('.amount').forEach(el => {
+        const v = Number(el.dataset[mode]);
+        const label = mode === 'month' ? '/bulan' : '/tahun';
+        el.textContent = v === 0 ? 'Gratis' : 'Rp ' + v.toLocaleString('id-ID') + ' ' + label;
+      });
+    }));
+
+    // Kuis mini
+    const answer = Number($('#quiz').dataset.answer);
+    $$('.opt').forEach((o, i) => o.addEventListener('click', () => {
+      $$('.opt').forEach(x => x.classList.remove('ok', 'bad'));
+      const msg = $('#quizMsg');
+      if (i === answer) {
+        o.classList.add('ok');
+        msg.textContent = '🎉 Benar! 3x = 15, jadi x = 5.';
+      } else {
+        o.classList.add('bad');
+        msg.textContent = '❌ Belum tepat, coba lagi.';
+      }
+    }));
+
+    // Counter statistik
+    const counters = $$('.stat strong');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.transition = 'transform .6s';
+          e.target.style.transform = 'scale(1.1)';
+          setTimeout(() => { e.target.style.transform = 'scale(1)'; }, 600);
+          io.unobserve(e.target);
+        }
+      });
+    });
+    counters.forEach(c => io.observe(c));
+
+    // Form newsletter
+    $('#newsForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = $('#email').value.trim();
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      $('#formMsg').textContent = ok
+        ? '✅ Terima kasih! Tips belajar akan dikirim ke ' + email
+        : '⚠️ Masukkan alamat email yang valid.';
+      if (ok) $('#email').value = '';
+    });
+
+    // Tombol kembali ke atas
+    const toTop = $('#toTop');
+    window.addEventListener('scroll', () => {
+      toTop.style.display = window.scrollY > 500 ? 'block' : 'none';
+    });
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
